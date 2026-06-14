@@ -8,6 +8,10 @@
   <strong>Minimize every normal macOS window and restore your workspace with one hotkey.</strong>
 </p>
 
+<p align="center">
+  <a href="https://github.com/onekapisch/macOS-Minimizer/releases/latest"><strong>Download latest release</strong></a>
+</p>
+
 [![CI](https://github.com/onekapisch/macOS-Minimizer/actions/workflows/ci.yml/badge.svg)](https://github.com/onekapisch/macOS-Minimizer/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -35,12 +39,20 @@ Mission Control's temporary Show Desktop gesture and not app hiding.
 ## Requirements
 
 - macOS 13 or newer.
+- Accessibility permission granted to Minimizer at runtime.
+
+## Install
+
+Download `Minimizer-v1.0.0.zip` from the [latest GitHub Release](https://github.com/onekapisch/macOS-Minimizer/releases/latest), unzip it, move `Minimizer.app` to Applications, and launch it.
+
+On first launch, macOS will ask for Accessibility permission. Grant it in System
+Settings so Minimizer can minimize, restore, and focus windows from other apps.
+
+## Build From Source
+
 - Xcode command line tools.
 - Swift 5.9 or newer.
 - XcodeGen for regenerating `Minimizer.xcodeproj`.
-- Accessibility permission granted to Minimizer at runtime.
-
-## Install From Source
 
 Clone the repository and build the app bundle:
 
@@ -51,9 +63,6 @@ swift build -c release
 ./build_app.sh
 open "Minimizer.app"
 ```
-
-On first launch, macOS will ask for Accessibility permission. Grant it in System
-Settings so Minimizer can minimize, restore, and focus windows from other apps.
 
 ## Development
 
@@ -83,9 +92,9 @@ after restore. See `SECURITY.md` for the full security and data handling notes.
 
 ## Distribution
 
-Public binary distribution is planned through a Developer ID-signed and notarized
-DMG attached to GitHub Releases. The project is not targeting the Mac App Store
-because the app needs direct Accessibility control over other apps' windows.
+Public binary releases are Developer ID-signed, notarized, and attached to GitHub
+Releases. The project is not targeting the Mac App Store because the app needs
+direct Accessibility control over other apps' windows.
 
 See `RELEASE_PLAN.md` for the release checklist.
 

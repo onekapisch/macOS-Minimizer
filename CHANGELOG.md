@@ -2,6 +2,8 @@
 
 ## 2026-06-14
 
+- Released `v1.0.0` as a notarized Developer ID app ZIP.
+- Added a README download link for GitHub Releases.
 - Fixed release script variable boundaries around progress messages.
 - Added an optimized README demo GIF and ignored raw screen recordings.
 - Removed personal Apple Developer Team metadata from public project files.
