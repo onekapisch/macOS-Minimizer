@@ -17,6 +17,10 @@ Dock, then restores those windows and returns focus to the window you were using
 It exists for people who want a true minimize-and-restore workflow on macOS, not
 Mission Control's temporary Show Desktop gesture and not app hiding.
 
+<p align="center">
+  <img src="Assets/minimizer-demo.gif" alt="Minimizer demo: all windows minimize and restore with one hotkey">
+</p>
+
 ## Features
 
 - Global hotkey for minimize/restore.

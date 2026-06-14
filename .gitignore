@@ -5,6 +5,8 @@ DerivedData/
 Minimizer.app/
 *.dmg
 *.zip
+*.mov
+*.mp4
 *.key
 *.pem
 *.p8
