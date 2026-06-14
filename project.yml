@@ -1,0 +1,35 @@
+name: Minimizer
+options:
+  bundleIdPrefix: com.equinox
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  Minimizer:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/Minimizer
+      - path: Resources/Minimizer.icns
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_NAME: Minimizer
+        PRODUCT_BUNDLE_IDENTIFIER: com.equinox.Minimizer
+        INFOPLIST_FILE: Resources/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_APP_INTENTS_DEPLOYMENT_AWARE_PROCESSING: NO
+        EXTRACT_APP_INTENTS_METADATA: NO
+        SWIFT_EMIT_CONST_VALUE_PROTOCOLS: ""
+        COMBINE_HIDPI_IMAGES: YES
+        LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
+        # Menu-bar-only agent app (also enforced in Info.plist via LSUIElement).

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install XcodeGen
+        env:
+          HOMEBREW_NO_REQUIRE_TAP_TRUST: "1"
+        run: brew install xcodegen
+
+      - name: Run Swift tests
+        run: swift test
+
+      - name: Build SwiftPM release
+        run: swift build -c release
+
+      - name: Build app bundle
+        run: ./build_app.sh
+
+      - name: Regenerate Xcode project
+        run: xcodegen generate
+
+      - name: Build Xcode project
+        run: xcodebuild -project Minimizer.xcodeproj -scheme Minimizer -configuration Release -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO build
