@@ -2,6 +2,7 @@
 
 ## 2026-06-14
 
+- Fixed release script variable boundaries around progress messages.
 - Added an optimized README demo GIF and ignored raw screen recordings.
 - Removed personal Apple Developer Team metadata from public project files.
 - Replaced the fixed local signing-keychain password with a generated per-machine

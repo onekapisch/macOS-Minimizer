@@ -30,11 +30,11 @@ fi
 echo "==> Signing identity: $IDENTITY"
 
 # --- Build + assemble the .app (reuses the SwiftPM build) ---
-echo "==> Building ($CONFIG)…"
+echo "==> Building (${CONFIG})..."
 swift build -c "$CONFIG"
 BIN_PATH="$(swift build -c "$CONFIG" --show-bin-path)/$APP_NAME"
 
-echo "==> Assembling $BUNDLE…"
+echo "==> Assembling ${BUNDLE}..."
 rm -rf "$BUNDLE"
 mkdir -p "$BUNDLE/Contents/MacOS" "$BUNDLE/Contents/Resources"
 cp "$BIN_PATH" "$BUNDLE/Contents/MacOS/$APP_NAME"
@@ -48,7 +48,7 @@ codesign --force --options runtime --timestamp \
 codesign --verify --strict --verbose=2 "$BUNDLE"
 
 # --- Build the DMG (drag-to-Applications) ---
-echo "==> Building $DMG…"
+echo "==> Building ${DMG}..."
 rm -rf "$DMG" dmg_staging
 mkdir dmg_staging
 cp -R "$BUNDLE" dmg_staging/
@@ -58,10 +58,10 @@ rm -rf dmg_staging
 codesign --force --sign "$IDENTITY" "$DMG"
 
 # --- Notarize + staple ---
-echo "==> Submitting to Apple notary service (this can take a few minutes)…"
+echo "==> Submitting to Apple notary service (this can take a few minutes)..."
 xcrun notarytool submit "$DMG" --keychain-profile "$NOTARY_PROFILE" --wait
 
-echo "==> Stapling…"
+echo "==> Stapling..."
 xcrun stapler staple "$DMG"
 xcrun stapler staple "$BUNDLE" || true
 spctl --assess --type open --context context:primary-signature -v "$DMG" || true
