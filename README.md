@@ -12,6 +12,10 @@
   <a href="https://github.com/onekapisch/macOS-Minimizer/releases/latest"><strong>Download latest release</strong></a>
 </p>
 
+<p align="center">
+  <a href="https://www.onekapisch.com/products/minimizer/">Product page</a> · <a href="https://www.onekapisch.com/products/">All OneKapisch apps</a>
+</p>
+
 [![CI](https://github.com/onekapisch/macOS-Minimizer/actions/workflows/ci.yml/badge.svg)](https://github.com/onekapisch/macOS-Minimizer/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -27,7 +31,7 @@ Mission Control's temporary Show Desktop gesture and not app hiding.
 
 ## Features
 
-- Global hotkey for minimize/restore.
+- Global hotkey for minimize/restore. Default: Control-Option-M (⌃⌥M); change it in Settings.
 - Menu-bar-only app with no Dock icon.
 - Direct Accessibility window control through `kAXMinimizedAttribute`.
 - Restore set tracking so already-minimized windows are left alone.
@@ -38,7 +42,7 @@ Mission Control's temporary Show Desktop gesture and not app hiding.
 
 ## Requirements
 
-- macOS 13 or newer.
+- macOS 13 or newer, Apple silicon or Intel (universal binary).
 - Accessibility permission granted to Minimizer at runtime.
 
 ## Install
@@ -47,6 +51,16 @@ Download `Minimizer-v1.0.0.zip` from the [latest GitHub Release](https://github.
 
 On first launch, macOS will ask for Accessibility permission. Grant it in System
 Settings so Minimizer can minimize, restore, and focus windows from other apps.
+
+Or with Homebrew (Homebrew 7 asks you to trust a third-party tap once):
+
+```sh
+brew tap onekapisch/tap
+brew trust onekapisch/tap
+brew install --cask onekapisch/tap/minimizer
+```
+
+Remove it with `brew uninstall --zap --cask onekapisch/tap/minimizer`.
 
 ## Build From Source
 
