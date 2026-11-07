@@ -26,8 +26,15 @@ It exists for people who want a true minimize-and-restore workflow on macOS, not
 Mission Control's temporary Show Desktop gesture and not app hiding.
 
 <p align="center">
-  <img src="Assets/minimizer-demo.gif" alt="Minimizer demo: all windows minimize and restore with one hotkey">
+  <img src="Assets/screenshots/menubar.png" width="300" alt="Minimizer menu in the macOS menu bar with Minimize All Windows, the hotkey, Launch at Login and Settings">
+  <img src="Assets/screenshots/settings.png" width="420" alt="Minimizer Settings with the global shortcut recorder and Launch at Login">
 </p>
+
+<p align="center">
+  <img src="Assets/screenshots/onboarding.png" width="420" alt="Minimizer first-run welcome window asking for Accessibility permission">
+</p>
+
+Left-click the menu bar icon (or press ⌃⌥M) to minimize every window; click again to restore them. Right-click the icon for the menu.
 
 ## Features
 
